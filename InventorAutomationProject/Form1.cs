@@ -11,15 +11,20 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using DarkModeForms;
 using Inventor;
+using InventorAutomationProject;
 
 namespace InventorAutomationProject
 {
     public partial class Form1 : Form
     {
-        Inventor.Application _invApp;
-        bool _started = false;
 
-        private DarkModeCS dm;
+        private readonly DarkModeCS dm;
+
+        private readonly InventorService _inventorService;
+        private readonly MenuControl menuControl;
+        private readonly HelpControl helpControl;
+        private readonly CubePage cubePage;
+
 
         public Form1()
         {
@@ -30,83 +35,87 @@ namespace InventorAutomationProject
                 ColorMode = DarkModeCS.DisplayMode.SystemDefault
             };
 
-            try
-            {
-                _invApp = (Inventor.Application)Marshal.GetActiveObject("Inventor.Application");
+            // Initialize the shared InventorService
+            _inventorService = new InventorService();
 
-            }
-            catch (Exception)
+            // Pass the service to controls
+            menuControl = new MenuControl(_inventorService);
+            helpControl = new HelpControl();
+            cubePage = new CubePage(_inventorService);
+        }
+        
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            LoadControlPage(menuControl);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadControlPage(menuControl);
+            Console.LogAction = (msg) =>
             {
-                try
+                if (txtConsole.InvokeRequired)
                 {
-                    Type invAppType = Type.GetTypeFromProgID("Inventor.Application");
-
-                    _invApp = (Inventor.Application)System.Activator.CreateInstance(invAppType);
-                    _invApp.Visible = true;
-
-                    //Note: if the Inventor session is left running after this
-                    //form is closed, there will still be an Inventor.exe 
-                    //running. We will use this Boolean to test in Form1.Designer.cs 
-                    //in the dispose method whether or not the Inventor App should
-                    //be shut down when the form is closed.
-                    _started = true;
-
+                    txtConsole.Invoke(new Action(() => Console.LogAction(msg)));
+                    return;
                 }
-                catch (Exception ex2)
+
+                int closingBracket = msg.IndexOf(']');
+                if (closingBracket >= 0)
                 {
-                    MessageBox.Show(ex2.ToString());
-                    MessageBox.Show("Unable to get or start Inventor");
+                    string timestamp = msg.Substring(0, closingBracket + 1);
+                    string rest = msg.Substring(closingBracket + 1);
+
+                    txtConsole.SelectionStart = txtConsole.TextLength;
+                    txtConsole.SelectionColor = System.Drawing.Color.Green; // Color for timestamp
+                    txtConsole.AppendText(timestamp);
+
+                    txtConsole.SelectionColor = txtConsole.ForeColor; // Default color
+                    txtConsole.AppendText(rest + System.Environment.NewLine);
+                    // Scroll to the end of the text
+                    txtConsole.SelectionStart = txtConsole.Text.Length;
+                    txtConsole.ScrollToCaret();
                 }
-            }
+                else
+                {
+                    // Fallback in case formatting is off
+                    txtConsole.AppendText(msg + System.Environment.NewLine);
+                }
+            };
         }
 
-        private void CreateCube(double height, double width, double length)
+        private void HelpButton_Click(object sender, EventArgs e)
         {
-            // Create a new part document
-            PartDocument partDoc = (PartDocument)_invApp.Documents.Add(DocumentTypeEnum.kPartDocumentObject,
-                                                                            _invApp.FileManager.GetTemplateFile(DocumentTypeEnum.kPartDocumentObject),
-                                                                            true);
-
-            PartComponentDefinition compDef = partDoc.ComponentDefinition;
-            PlanarSketch sketch = compDef.Sketches.Add(compDef.WorkPlanes[3]); // XY Plane
-
-            // Draw rectangle on sketch
-            TransientGeometry tg = _invApp.TransientGeometry;
-            sketch.SketchLines.AddAsTwoPointRectangle(
-                tg.CreatePoint2d(0, 0),
-                tg.CreatePoint2d(width, length)
-            );
-
-            // Profile and extrude
-            Profile profile = sketch.Profiles.AddForSolid();
-            ExtrudeDefinition extDef = compDef.Features.ExtrudeFeatures.CreateExtrudeDefinition(
-                profile, PartFeatureOperationEnum.kJoinOperation);
-            extDef.SetDistanceExtent(height, PartFeatureExtentDirectionEnum.kPositiveExtentDirection);
-
-            compDef.Features.ExtrudeFeatures.Add(extDef);
+            LoadControlPage(helpControl);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void LoadControlPage(Control controlPage)
         {
-            try
-            {
-                double height = Convert.ToDouble(txtHeight.Text);
-                double width = Convert.ToDouble(txtWidth.Text);
-                double length = Convert.ToDouble(txtLength.Text);
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(controlPage);
+            controlPage.Dock = DockStyle.Fill;
+        }
 
-                CreateCube(height, width, length);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            //prompt user to save changes
+
+            if (DialogResult.Yes == Messenger.MessageBox("Are you sure you want to exit? All unsaved changes will be lost!",
+				"Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+			{
+				// Release the Inventor application object
+				_inventorService?.InvApp.Quit();
+                // Close the Form
+				Form1.ActiveForm.Close();
+			}
+			else
+			{
+                
             }
 
         }
 
-        private void sphereToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 

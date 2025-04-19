@@ -29,224 +29,104 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.txtLength = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtWidth = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtHeight = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.shapesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sphereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gearsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.spurGearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helicalGearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bevelGearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wormGearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1.SuspendLayout();
+            this.HomeButton = new System.Windows.Forms.Button();
+            this.HelpButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.txtConsole = new System.Windows.Forms.RichTextBox();
+            this.ConsoleBox = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
-            // txtLength
+            // HomeButton
             // 
-            this.txtLength.CausesValidation = false;
-            this.txtLength.Location = new System.Drawing.Point(151, 73);
-            this.txtLength.Name = "txtLength";
-            this.txtLength.Size = new System.Drawing.Size(100, 20);
-            this.txtLength.TabIndex = 0;
+            this.HomeButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.HomeButton.Location = new System.Drawing.Point(12, 56);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(136, 74);
+            this.HomeButton.TabIndex = 0;
+            this.HomeButton.Text = "Home";
+            this.HomeButton.UseVisualStyleBackColor = true;
+            this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
-            // label1
+            // HelpButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Length";
+            this.HelpButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.HelpButton.Location = new System.Drawing.Point(12, 151);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(136, 74);
+            this.HelpButton.TabIndex = 1;
+            this.HelpButton.Text = "Help";
+            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
-            // label2
+            // ExitButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(98, 112);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Width";
+            this.ExitButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ExitButton.Location = new System.Drawing.Point(12, 249);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(136, 74);
+            this.ExitButton.TabIndex = 2;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // txtWidth
+            // MainPanel
             // 
-            this.txtWidth.Location = new System.Drawing.Point(151, 108);
-            this.txtWidth.Name = "txtWidth";
-            this.txtWidth.Size = new System.Drawing.Size(100, 20);
-            this.txtWidth.TabIndex = 2;
+            this.MainPanel.Location = new System.Drawing.Point(183, 17);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(619, 488);
+            this.MainPanel.TabIndex = 3;
             // 
-            // label3
+            // txtConsole
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(98, 151);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Height";
+            this.txtConsole.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtConsole.Location = new System.Drawing.Point(12, 536);
+            this.txtConsole.Name = "txtConsole";
+            this.txtConsole.ReadOnly = true;
+            this.txtConsole.Size = new System.Drawing.Size(790, 340);
+            this.txtConsole.TabIndex = 4;
+            this.txtConsole.Text = "";
+            this.txtConsole.WordWrap = false;
             // 
-            // txtHeight
+            // ConsoleBox
             // 
-            this.txtHeight.Location = new System.Drawing.Point(151, 147);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(100, 20);
-            this.txtHeight.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(98, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Create a Cube!";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(101, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 40);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(368, 25);
-            this.toolStrip1.TabIndex = 8;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.shapesToolStripMenuItem,
-            this.gearsToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(51, 22);
-            this.toolStripDropDownButton1.Text = "Select";
-            // 
-            // shapesToolStripMenuItem
-            // 
-            this.shapesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cubeToolStripMenuItem,
-            this.sphereToolStripMenuItem});
-            this.shapesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("shapesToolStripMenuItem.Image")));
-            this.shapesToolStripMenuItem.Name = "shapesToolStripMenuItem";
-            this.shapesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.shapesToolStripMenuItem.Text = "Shapes";
-            // 
-            // cubeToolStripMenuItem
-            // 
-            this.cubeToolStripMenuItem.Name = "cubeToolStripMenuItem";
-            this.cubeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cubeToolStripMenuItem.Text = "Cube";
-            // 
-            // sphereToolStripMenuItem
-            // 
-            this.sphereToolStripMenuItem.Name = "sphereToolStripMenuItem";
-            this.sphereToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sphereToolStripMenuItem.Text = "Sphere";
-            this.sphereToolStripMenuItem.Click += new System.EventHandler(this.sphereToolStripMenuItem_Click);
-            // 
-            // gearsToolStripMenuItem
-            // 
-            this.gearsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.spurGearToolStripMenuItem,
-            this.helicalGearToolStripMenuItem,
-            this.bevelGearToolStripMenuItem,
-            this.wormGearToolStripMenuItem});
-            this.gearsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gearsToolStripMenuItem.Image")));
-            this.gearsToolStripMenuItem.Name = "gearsToolStripMenuItem";
-            this.gearsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gearsToolStripMenuItem.Text = "Gears";
-            // 
-            // spurGearToolStripMenuItem
-            // 
-            this.spurGearToolStripMenuItem.Name = "spurGearToolStripMenuItem";
-            this.spurGearToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.spurGearToolStripMenuItem.Text = "Spur Gear";
-            // 
-            // helicalGearToolStripMenuItem
-            // 
-            this.helicalGearToolStripMenuItem.Name = "helicalGearToolStripMenuItem";
-            this.helicalGearToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.helicalGearToolStripMenuItem.Text = "Helical Gear";
-            // 
-            // bevelGearToolStripMenuItem
-            // 
-            this.bevelGearToolStripMenuItem.Name = "bevelGearToolStripMenuItem";
-            this.bevelGearToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.bevelGearToolStripMenuItem.Text = "Bevel Gear";
-            // 
-            // wormGearToolStripMenuItem
-            // 
-            this.wormGearToolStripMenuItem.Name = "wormGearToolStripMenuItem";
-            this.wormGearToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.wormGearToolStripMenuItem.Text = "Worm Gear";
+            this.ConsoleBox.Location = new System.Drawing.Point(-3, 511);
+            this.ConsoleBox.Name = "ConsoleBox";
+            this.ConsoleBox.Size = new System.Drawing.Size(828, 389);
+            this.ConsoleBox.TabIndex = 5;
+            this.ConsoleBox.TabStop = false;
+            this.ConsoleBox.Text = "Console";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(368, 300);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtHeight);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtWidth);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtLength);
+            this.ClientSize = new System.Drawing.Size(821, 899);
+            this.Controls.Add(this.txtConsole);
+            this.Controls.Add(this.MainPanel);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.HelpButton);
+            this.Controls.Add(this.HomeButton);
+            this.Controls.Add(this.ConsoleBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.Text = "Inventor Automation";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtLength;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtWidth;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtHeight;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem shapesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cubeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sphereToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gearsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem spurGearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helicalGearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bevelGearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wormGearToolStripMenuItem;
+        private System.Windows.Forms.Button HomeButton;
+        private System.Windows.Forms.Button HelpButton;
+        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.RichTextBox txtConsole;
+        private System.Windows.Forms.GroupBox ConsoleBox;
     }
 }
 

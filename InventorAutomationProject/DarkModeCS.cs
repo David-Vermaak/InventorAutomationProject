@@ -282,7 +282,7 @@ namespace DarkModeForms
 
 		private IntPtr originalWndProc;
 		private WndProc newWndProcDelegate;
-		private IntPtr formHandle;
+		private readonly IntPtr formHandle;
 		private bool applyingTheme; // Flag to prevent recursion
 
 		#endregion
@@ -435,7 +435,7 @@ namespace DarkModeForms
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message + ex.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Messenger.MessageBox(ex.Message + ex.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		public void ApplyTheme(DisplayMode pColorMode)
