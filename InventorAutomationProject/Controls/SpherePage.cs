@@ -62,18 +62,16 @@ namespace InventorAutomationProject
                 Profile profile = sketch.Profiles.AddForSolid();
                 Console.Log("Profile created from sketch.");
 
-                // Get Y axis for revolution
-                SketchLine yAxis = sketch.SketchLines.AddByTwoPoints(
-                    tg.CreatePoint2d(0, -radius * 1.5),
-                    tg.CreatePoint2d(0, radius * 1.5)
-                );
+                // Create a separate line for rotation axis (X axis)
+                WorkAxis xAxis = componentDefinition.WorkAxes[1]; // X axis
                 Console.Log("Revolution axis created.");
 
                 // Revolve profile around axis to create sphere
                 RevolveFeature revolve = componentDefinition.Features.RevolveFeatures.AddFull(
                     profile,
-                    yAxis,
+                    xAxis,
                     PartFeatureOperationEnum.kNewBodyOperation
+
                 );
 
                 Console.Log("Sphere created successfully.");

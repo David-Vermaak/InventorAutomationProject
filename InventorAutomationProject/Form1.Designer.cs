@@ -72,27 +72,27 @@
             // 
             // MainPanel
             // 
-            this.MainPanel.Location = new System.Drawing.Point(183, 17);
+            this.MainPanel.Location = new System.Drawing.Point(154, 17);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(619, 488);
+            this.MainPanel.Size = new System.Drawing.Size(1043, 562);
             this.MainPanel.TabIndex = 3;
             // 
             // txtConsole
             // 
             this.txtConsole.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtConsole.Location = new System.Drawing.Point(12, 536);
+            this.txtConsole.Location = new System.Drawing.Point(21, 610);
             this.txtConsole.Name = "txtConsole";
             this.txtConsole.ReadOnly = true;
-            this.txtConsole.Size = new System.Drawing.Size(790, 340);
+            this.txtConsole.Size = new System.Drawing.Size(1153, 340);
             this.txtConsole.TabIndex = 4;
             this.txtConsole.Text = "";
             this.txtConsole.WordWrap = false;
             // 
             // ConsoleBox
             // 
-            this.ConsoleBox.Location = new System.Drawing.Point(-3, 511);
+            this.ConsoleBox.Location = new System.Drawing.Point(6, 585);
             this.ConsoleBox.Name = "ConsoleBox";
-            this.ConsoleBox.Size = new System.Drawing.Size(828, 389);
+            this.ConsoleBox.Size = new System.Drawing.Size(1191, 389);
             this.ConsoleBox.TabIndex = 5;
             this.ConsoleBox.TabStop = false;
             this.ConsoleBox.Text = "Console";
@@ -102,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(821, 899);
+            this.ClientSize = new System.Drawing.Size(1220, 979);
             this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.ExitButton);

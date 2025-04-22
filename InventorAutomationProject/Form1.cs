@@ -24,6 +24,7 @@ namespace InventorAutomationProject
         private readonly MenuControl menuControl;
         private readonly HelpControl helpControl;
         private readonly CubePage cubePage;
+        private readonly CycloidGearPage cycloidGearPage;
 
 
         public Form1()
@@ -42,6 +43,7 @@ namespace InventorAutomationProject
             menuControl = new MenuControl(_inventorService);
             helpControl = new HelpControl();
             cubePage = new CubePage(_inventorService);
+            cycloidGearPage = new CycloidGearPage(_inventorService);
         }
         
 

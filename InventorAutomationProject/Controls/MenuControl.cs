@@ -28,5 +28,12 @@ namespace InventorAutomationProject
             // Check if the main form is open
             mainForm?.LoadControlPage(new SpherePage(_inventorService));
         }
+
+        private void CycloidGearButton_Click(object sender, EventArgs e)
+        {
+            Form1 mainForm = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+            // Check if the main form is open
+            mainForm?.LoadControlPage(new CycloidGearPage(_inventorService));
+        }
     }
 }

@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\CycloidGearPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CycloidGearPage.Designer.cs">
+      <DependentUpon>CycloidGearPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FlatComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SpherePage.resx">
       <DependentUpon>SpherePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CycloidGearPage.resx">
+      <DependentUpon>CycloidGearPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
