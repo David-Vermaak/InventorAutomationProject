@@ -35,6 +35,7 @@
             this.MainPanel = new System.Windows.Forms.Panel();
             this.txtConsole = new System.Windows.Forms.RichTextBox();
             this.ConsoleBox = new System.Windows.Forms.GroupBox();
+            this.OpenFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // HomeButton
@@ -62,7 +63,7 @@
             // ExitButton
             // 
             this.ExitButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ExitButton.Location = new System.Drawing.Point(12, 249);
+            this.ExitButton.Location = new System.Drawing.Point(12, 343);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(136, 74);
             this.ExitButton.TabIndex = 2;
@@ -97,12 +98,24 @@
             this.ConsoleBox.TabStop = false;
             this.ConsoleBox.Text = "Console";
             // 
+            // OpenFile
+            // 
+            this.OpenFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.OpenFile.Location = new System.Drawing.Point(12, 248);
+            this.OpenFile.Name = "OpenFile";
+            this.OpenFile.Size = new System.Drawing.Size(136, 74);
+            this.OpenFile.TabIndex = 6;
+            this.OpenFile.Text = "Open File";
+            this.OpenFile.UseVisualStyleBackColor = true;
+            this.OpenFile.Click += new System.EventHandler(this.OpenFile_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1220, 979);
+            this.Controls.Add(this.OpenFile);
             this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.ExitButton);
@@ -127,6 +140,7 @@
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.RichTextBox txtConsole;
         private System.Windows.Forms.GroupBox ConsoleBox;
+        private System.Windows.Forms.Button OpenFile;
     }
 }
 

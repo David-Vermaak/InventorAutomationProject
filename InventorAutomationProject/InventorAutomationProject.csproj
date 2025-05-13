@@ -73,6 +73,12 @@
     <Compile Include="Controls\CycloidGearPage.Designer.cs">
       <DependentUpon>CycloidGearPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\OpenFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OpenFile.Designer.cs">
+      <DependentUpon>OpenFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="FlatComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CycloidGearPage.resx">
       <DependentUpon>CycloidGearPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OpenFile.resx">
+      <DependentUpon>OpenFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

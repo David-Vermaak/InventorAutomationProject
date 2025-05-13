@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using DarkModeForms;
 using Inventor;
 using InventorAutomationProject;
+using InventorAutomationProject.Controls;
 
 namespace InventorAutomationProject
 {
@@ -23,6 +24,7 @@ namespace InventorAutomationProject
         private readonly InventorService _inventorService;
         private readonly MenuControl menuControl;
         private readonly HelpControl helpControl;
+        private readonly OpenFile openFile;
         private readonly CubePage cubePage;
         private readonly CycloidGearPage cycloidGearPage;
 
@@ -42,6 +44,7 @@ namespace InventorAutomationProject
             // Pass the service to controls
             menuControl = new MenuControl(_inventorService);
             helpControl = new HelpControl();
+            openFile = new OpenFile(_inventorService);
             cubePage = new CubePage(_inventorService);
             cycloidGearPage = new CycloidGearPage(_inventorService);
         }
@@ -118,6 +121,10 @@ namespace InventorAutomationProject
 
         }
 
+        private void OpenFile_Click(object sender, EventArgs e)
+        {
+            LoadControlPage(openFile);
+        }
     }
 }
 
